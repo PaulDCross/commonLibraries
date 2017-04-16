@@ -5,20 +5,15 @@ import numpy as np
 import time
 import Vector
 
-def cart2pol(x, y):
-    rho = np.sqrt(x**2 + y**2)
-    phi = np.arctan2(y, x)
-    return(rho, phi)
-
-def pol2cart(rho, phi):
-    x = rho * np.cos(phi)
-    y = rho * np.sin(phi)
-    return(x, y)
-
 def bearingMeasurement(dx, dy):
     a = math.atan2(dx,dy)
     a = a*(a>=0) + (a+2*math.pi)*(a<0)
     return round(a*(180/math.pi),1)
+
+def bearingMeasurementRad(dx, dy):
+    a = math.atan2(dx,dy)
+    a = a*(a>=0) + (a+2*math.pi)*(a<0)
+    return a
 
 def makedir(DIR):
     if not os.path.exists(DIR):
