@@ -85,8 +85,9 @@ def pol2cart(rho, phi):
     y = rho * np.sin(phi)
     return(x, y)
 
-def colourise(self, value, min, max):
-    norm   = mpl.colors.Normalize(vmin=0, vmax=10)
+def colourise(value, minimum, maximum):
+    norm   = mpl.colors.Normalize(vmin=minimum, vmax=maximum)
     m      = cm.ScalarMappable(norm=norm, cmap=cm.gray)
     colour = np.array(m.to_rgba(value)[:-1])*255
     return colour[::-1]
+
