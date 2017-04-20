@@ -4,6 +4,8 @@ import random
 import numpy as np
 import time
 import Vector
+import matplotlib.cm as cm
+import matplotlib as mpl
 
 def bearingMeasurement(dx, dy):
     a = math.atan2(dx,dy)
@@ -82,3 +84,9 @@ def pol2cart(rho, phi):
     x = rho * np.cos(phi)
     y = rho * np.sin(phi)
     return(x, y)
+
+def colourise(self, value, min, max):
+    norm   = mpl.colors.Normalize(vmin=0, vmax=10)
+    m      = cm.ScalarMappable(norm=norm, cmap=cm.gray)
+    colour = np.array(m.to_rgba(value)[:-1])*255
+    return colour[::-1]
