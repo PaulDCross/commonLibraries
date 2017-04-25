@@ -46,7 +46,10 @@ class Vector(object):
         return math.sqrt(self.x**2 + self.y**2)
 
     def unit(self):
-        return Vector([self.x/self.mag(), self.y/self.mag()])
+        if self.mag() == 0:
+            return Vector([0,0])
+        else:
+            return Vector([self.x/self.mag(), self.y/self.mag()])
 
     def mulScalar(self, scalar):
         return Vector([self.x*scalar, self.y*scalar])
