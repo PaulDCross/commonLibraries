@@ -30,10 +30,14 @@ class Vector(object):
         self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def add(self, vector):
-        return Vector([self.x + vector.x, self.y + vector.y])
+        self.x   += vector.x
+        self.y   += vector.y
+        self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def sub(self, vector):
-        return Vector([self.x - vector.x, self.y - vector.y])
+        self.x   -= vector.x
+        self.y   -= vector.y
+        self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def dot(self, other):
         return self.x*other.x + self.y*other.y
@@ -49,3 +53,11 @@ class Vector(object):
 
     def mulVector(self, other):
         return Vector([self.x*other.x, self.y*other.y])
+
+
+
+def add(vector1, vector2):
+    return Vector([vector1.x + vector2.x, vector1.y + vector2.y])
+
+def sub(vector1, vector2):
+    return Vector([vector1.x - vector2.x, vector1.y - vector2.y])
