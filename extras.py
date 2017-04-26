@@ -59,7 +59,7 @@ def upperLimit(value, maximum):
     return min(maximum, value)
 
 def limit(value, minimum, maximum):
-    return max(minimum, min(maximum, maximum-value))
+    return max(minimum, min(maximum, value))
 
 def mapValue(OldValue, OldMin, OldMax, NewMin, NewMax):
     OldRange = (OldMax - OldMin)
