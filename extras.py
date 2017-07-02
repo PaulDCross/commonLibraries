@@ -91,3 +91,19 @@ def colourise(value, minimum, maximum):
     colour = np.array(m.to_rgba(value)[:-1])*255
     return colour[::-1]
 
+def overlap(r1,r2):
+    '''Overlapping rectangles overlap both horizontally & vertically
+    '''
+    r1_left   = r1[0]
+    r1_right  = r1[0] + r1[2]
+    r1_top    = r1[1]
+    r1_bottom = r1[1] + r1[3]
+
+    r2_left   = r2[0]
+    r2_right  = r2[0] + r2[2]
+    r2_top    = r2[1]
+    r2_bottom = r2[1] + r2[3]
+
+    hOverlaps = (r1_left <= r2_right)  and (r1_right  >= r2_left)
+    vOverlaps = (r1_top  <= r2_bottom) and (r1_bottom >= r2_top)
+    return hOverlaps and vOverlaps
