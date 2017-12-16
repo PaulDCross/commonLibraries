@@ -46,7 +46,7 @@ class Clusters(object):
 
     def update(self):
         for data in self.data:
-            distance = [data.sub(cluster.pos).mag() for cluster in self.clusters]
+            distance = [v.sub(data, cluster.pos).mag() for cluster in self.clusters]
             self.clusters[distance.index(min(distance))].addData(data)
         for cluster in self.clusters:
             cluster.update()
