@@ -1,5 +1,6 @@
 import math
 
+
 class Vector(object):
     """Vector(x, y)
 
@@ -16,13 +17,20 @@ class Vector(object):
 
     Methods
     =======
-    add(other)          = returns a Vector object whose x and y components are determined by adding together the x components of this vector and another vector and adding together the y components of this vector and another vector.
-    sub(other)          = returns a Vector object whose x and y components are determined by subtracting together the x components of this vector and another vector and ubtracting together the y components of this vector and another vector.
+    add(other)          = returns a Vector object whose x and y components are determined by adding together the x
+                          components of this vector and another vector and adding together the y components of this
+                          vector and another vector.
+    sub(other)          = returns a Vector object whose x and y components are determined by subtracting together the x
+                          components of this vector and another vector and subtracting together the y components of this
+                          vector and another vector.
     dot(other)          = returns the dot product of this vector and the vector 'other'.
     mag                 = returns the magnitude of this vector.
     unit                = returns a Vector object which is this vector's unit vector.
-    mulScalar(scalar)   = returns a Vector object whose x and y components are determined by multiplying the components with the scalar value.
-    mulVector(vector)   = returns a Vector object whose x and y components are determined by multiplying together the x components of this vector and another vector and multiplying together the y components of this vector and another vector.
+    mulScalar(scalar)   = returns a Vector object whose x and y components are determined by multiplying the components
+                          with the scalar value.
+    mulVector(vector)   = returns a Vector object whose x and y components are determined by multiplying together the x
+                          components of this vector and another vector and multiplying together the y components of this
+                          vector and another vector.
     """
     def __init__(self, xy):
         self.x = xy[0]
@@ -30,13 +38,13 @@ class Vector(object):
         self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def add(self, vector):
-        self.x   += vector.x
-        self.y   += vector.y
+        self.x += vector.x
+        self.y += vector.y
         self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def sub(self, vector):
-        self.x   -= vector.x
-        self.y   -= vector.y
+        self.x -= vector.x
+        self.y -= vector.y
         self.pos = [round(self.x, 3), round(self.y, 3)]
 
     def dot(self, other):
@@ -47,7 +55,7 @@ class Vector(object):
 
     def unit(self):
         if self.mag() == 0:
-            return Vector([0,0])
+            return Vector([0, 0])
         else:
             return Vector([self.x/self.mag(), self.y/self.mag()])
 
@@ -58,9 +66,9 @@ class Vector(object):
         return Vector([self.x*other.x, self.y*other.y])
 
 
-
 def add(vector1, vector2):
     return Vector([vector1.x + vector2.x, vector1.y + vector2.y])
+
 
 def sub(vector1, vector2):
     return Vector([vector1.x - vector2.x, vector1.y - vector2.y])
